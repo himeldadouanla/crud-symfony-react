@@ -32,9 +32,9 @@ class EmployeeController extends AbstractController
 
         }
         return $this->json($data);
-        #return $this->render('employee/index.html.twig', [
-        #    'controller_name' => 'EmployeeController',
-        #]);
+        /**return $this->render('employee/index.html.twig', [
+        **    'controller_name' => 'EmployeeController',
+        ]);**/
     }
     #@Route("/employee", name="add_employee", methods={"POST"})
     public function addEmployee(ManagerRegistry $doctrine, Request $request): Response

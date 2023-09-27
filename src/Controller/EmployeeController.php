@@ -8,9 +8,16 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Employee;
-
+/**
+ * @Route("/api", name="api_")
+ */
 class EmployeeController extends AbstractController
 {
+    /**
+     * @param ManagerRegistry $doctrine
+     * @return Response
+     * @Route("/employee", name="app_employee", methods={"GET"})
+     */
     public function index(ManagerRegistry $doctrine): Response
     {
         $employees = $doctrine
@@ -32,6 +39,9 @@ class EmployeeController extends AbstractController
 
         }
         return $this->json($data);
+        /**
+         *  @Route("/employee", name="add_employee", methods={"POST"})
+         */
         /**return $this->render('employee/index.html.twig', [
         **    'controller_name' => 'EmployeeController',
         ]);**/
@@ -52,7 +62,9 @@ class EmployeeController extends AbstractController
         $entityManager->flush();
         return $this->json('New Employee has been added successfully with id ' . $employee->getId());
     }
- #@Route("/employee/{id}", name="employee_show", methods={"GET"})
+    /**
+        *@Route("/employee/{id}", name="employee_show", methods={"GET"})
+    */
     public function showEmployee(ManagerRegistry $doctrine, int $id): Response
     {
         $employee = $doctrine->getRepository(Employee::class)->find($id);
@@ -70,7 +82,9 @@ class EmployeeController extends AbstractController
         ];
         return $this->json($data);
     }
-    # @Route("/employee/{id}", name="employee_edit", methods={"PUT", "PATCH"})
+    /**
+    * @Route("/employee/{id}", name="employee_edit", methods={"PUT", "PATCH"})
+    */
     public function editEmployee(ManagerRegistry $doctrine, Request $request, int $id): Response
     {
         $entityManager = $doctrine->getManager();
@@ -99,7 +113,9 @@ class EmployeeController extends AbstractController
         ];
         return $this->json($data);
     }
-    # @Route("/employee/{id}", name="employee_delete", methods={"DELETE"})
+    /**
+    * @Route("/employee/{id}", name="employee_delete", methods={"DELETE"})
+    */
     public function delete(ManagerRegistry $doctrine, int $id): Response
     {
         $entityManager = $doctrine->getManager();

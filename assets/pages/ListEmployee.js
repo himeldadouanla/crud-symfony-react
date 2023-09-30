@@ -1,8 +1,11 @@
 import React,{ useState, useEffect} from 'react';
 import { Link } from "react-router-dom";
-import Layout from "../components/Layout"
+import Layout from "../components/layout.js"
 import Swal from 'sweetalert2'
-import axios from 'axios';function ListEmployee() {
+import axios from 'axios';
+import AddEmployee from "./AddEmployee";
+
+function ListEmployee() {
     const [listEmployee, setEmployeeList] = useState([])
     UseEffect(() =>{
         fetchEmployeeList()
@@ -110,3 +113,4 @@ import axios from 'axios';function ListEmployee() {
     )
 
 }
+export default ListEmployee;

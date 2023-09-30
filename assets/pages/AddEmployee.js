@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Link } from "react-router-dom";
-import Layout from "../components/Layout"
+import Layout from "../components/layout.js"
 import Swal from 'sweetalert2'
 import axios from 'axios';
 function AddEmployee() {

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Link, useParams } from "react-router-dom";
-import Layout from "../components/Layout"
+import Layout from "../components/layout.js"
 import axios from 'axios';
 function ViewEmployee() {
     const [id, setId] = useState(useParams().id)

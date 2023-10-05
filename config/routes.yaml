@@ -1,7 +1,4 @@
-index:
-controllers:
-    resource: ../src/Controller/
-    type: attribute
-    path: '/public/'
-    defaults:
-        _controller: 'FrameworkBundle:Redirect:urlRedirectAction'
+contact:
+    path: /index
+    controller: 'App\Controller\ReactappController::index'
+    condition:  "context.getMethod() in ['GET']"
